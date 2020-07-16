@@ -16,7 +16,7 @@ export const booksData = [
     {
       "title": "Beren and Luthien",
       "author": "JRR Tolkien",
-      "quantity":0
+      "quantity":5
     },
     {
       "title": "Fire and Blood",

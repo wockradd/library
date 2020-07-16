@@ -6,9 +6,16 @@ import SearchBook from './SearchBook'
 
 const Library = () => {
     const [filterString, setFilterString] = useState('')
+    const [books, setBooks] = useState(booksData)
 
     const handleFilterTextChange = (text) =>{
         setFilterString(text)
+    }
+
+    const addBook = (book)=>{
+        console.log(books)
+        setBooks(books.push(book))
+        console.log(books)
     }
 
     
@@ -16,19 +23,20 @@ const Library = () => {
     return (
       <div>
         <SearchBook onChange={handleFilterTextChange}/>  
-         
-        {booksData.map(book=>{
+        <AddBook onSubmit={addBook}/> 
+        {books.map(book=>{
             if(book.title.toLowerCase().includes(filterString.toLowerCase())){
                 return (
                     <Book 
                         title={book.title} 
                         author={book.author} 
-                        quantity={book.quantity}
+                        initialQuantity={book.quantity}
                         key={book.title.toLowerCase()}
                     />
                   )
+            }else{
+                return null
             }
-          
         })}
       </div>
     )

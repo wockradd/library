@@ -1,17 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Book = (props) => {
-    return (
-      <div>
-        <h2>{props.title}</h2>
-        <p>By {props.author}</p>
-        <p>Quantity: {props.quantity}</p>
-        <button 
-            onClick={()=>{
-            alert("You tried to checkout '" + props.title + "'")
-            }}>Checkout Book</button>
-      </div>
-    )
+    const [quantity, setQuantity] = useState(props.initialQuantity)
+
+    
+    if(quantity!==0){
+        return (
+            <div>
+              <h2>{props.title}</h2>
+              <p>By {props.author}</p>
+              <p>Quantity: {quantity}</p>
+              <button 
+                  onClick={()=>{
+                  setQuantity(quantity => quantity-1)
+                  }}>Checkout Book</button>
+            </div>
+          )
+    }else{
+        return null
+    }
   }
 
 export default Book
