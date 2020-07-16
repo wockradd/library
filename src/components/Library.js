@@ -12,6 +12,9 @@ const Library = () => {
         setFilterString(text)
     }
 
+    //TODO
+    //decide whether we need to add a new book
+    //or increase the quantity of one that already exists
     const addBook = (book)=>{
         setBooks(books.concat(book))
     }
@@ -22,7 +25,6 @@ const Library = () => {
       <div>
         <SearchBook onChange={handleFilterTextChange}/>  
         <AddBook onSubmit={addBook}/>
-        {console.log(books)} 
         {books.map(book=>{
             if(book.title.toLowerCase().includes(filterString.toLowerCase())){
                 return (

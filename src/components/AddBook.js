@@ -5,11 +5,15 @@ function AddBook(props) {
         <div>
             <form onSubmit={e=>{
                 e.preventDefault()
-                props.onSubmit({
-                    "title":e.target.title.value,
-                    "author":e.target.author.value,
-                    "quantity":1
-                })
+                if(e.target.title.value !== '' && e.target.author.value !== ''){
+                    props.onSubmit({
+                        "title":e.target.title.value,
+                        "author":e.target.author.value,
+                    })
+                }else{
+                    alert("Fill out the form dickhead")
+                }
+                
             }}>
                 <label>Title:</label>
                 <input type='text' name='title'></input>
