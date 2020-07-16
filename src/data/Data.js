@@ -1,16 +1,26 @@
 export const booksData = [
     { "title": "Hellboy",
       "author": "Mike Mignola",
-      "key":0
+      "quantity":2
     },
     {
       "title": "The Satanic Bible",
       "author": "Anton LaVey",
-      "key":1
+      "quantity":1
     },
     {
       "title": "Breakfast of Champions",
       "author": "Kurt Vonnegut",
-      "key":2
+      "quantity":3
+    },
+    {
+      "title": "Beren and Luthien",
+      "author": "JRR Tolkien",
+      "quantity":0
+    },
+    {
+      "title": "Fire and Blood",
+      "author": "George RR Martin",
+      "quantity":10
     }
 ]

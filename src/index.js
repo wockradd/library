@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import {booksData} from "./data/Data.js"
-import Library from "./components/Library"
+import App from './App'
 
 
 
 
 ReactDOM.render(
-  <Library booksData={booksData}/>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+  ,
   document.getElementById("root")
 )
 
