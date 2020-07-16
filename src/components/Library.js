@@ -13,9 +13,7 @@ const Library = () => {
     }
 
     const addBook = (book)=>{
-        console.log(books)
-        setBooks(books.push(book))
-        console.log(books)
+        setBooks(books.concat(book))
     }
 
     
@@ -23,7 +21,8 @@ const Library = () => {
     return (
       <div>
         <SearchBook onChange={handleFilterTextChange}/>  
-        <AddBook onSubmit={addBook}/> 
+        <AddBook onSubmit={addBook}/>
+        {console.log(books)} 
         {books.map(book=>{
             if(book.title.toLowerCase().includes(filterString.toLowerCase())){
                 return (
