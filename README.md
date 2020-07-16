@@ -1,4 +1,4 @@
 * npm i
-* npm run
+* npm start
 * ???
-* Profit
+* profit
