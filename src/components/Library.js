@@ -14,7 +14,32 @@ const Library = () => {
 
     
     const addBook = (book)=>{
+      let alreadyHaveBook = false
+      let atIndex;
+
+      //loop through to see if we have the book or not
+      for(let i=0 ; i<books.length ; i++){
+        if(book.title.toLowerCase() === books[i].title.toLowerCase() && book.author.toLowerCase() === books[i].author.toLowerCase()){
+          alreadyHaveBook = true
+          atIndex = i
+          break
+        }
+      }
+
+
+      if(alreadyHaveBook){
+        let tempBooks = [...books]//not sure why i've gotta do this copy thing tbh
+        tempBooks[atIndex].quantity++   //doesnt rerender otherwise
+        setBooks(tempBooks)
+      }else{
         setBooks(books.concat(book))
+      }
+
+       
+      
+
+      
+      
     }
 
     const removeBook = (book)=>{

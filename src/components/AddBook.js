@@ -9,6 +9,7 @@ function AddBook(props) {
                     props.onSubmit({
                         "title":e.target.title.value.trim().toString(),
                         "author":e.target.author.value.trim().toString(),
+                        "quantity":1
                     })
                 }else{
                     alert("Fill out the form dickhead")
