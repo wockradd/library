@@ -7,8 +7,8 @@ function AddBook(props) {
                 e.preventDefault()
                 if(e.target.title.value !== '' && e.target.author.value !== ''){
                     props.onSubmit({
-                        "title":e.target.title.value,
-                        "author":e.target.author.value,
+                        "title":e.target.title.value.trim().toString(),
+                        "author":e.target.author.value.trim().toString(),
                     })
                 }else{
                     alert("Fill out the form dickhead")

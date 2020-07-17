@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 const Book = (props) => {
-    const [quantity, setQuantity] = useState(props.initialQuantity)
+    
 
     
     
@@ -9,12 +9,14 @@ const Book = (props) => {
         <div>
             <h2>{props.title}</h2>
             <p>By {props.author}</p>
-            <p>Quantity: {quantity}</p>
+            <p>Quantity: {props.quantity}</p>
             <button
-                disabled = {quantity <= 0}
-                onClick={()=>{
-                setQuantity(quantity => quantity-1)
-            }}>
+                disabled = {props.quantity <= 0}   
+                onClick = {
+                    e=>{
+                        props.onClick({"title":props.title,"author":props.author,"quantity":props.quantity})
+                    }
+                }>
                 Checkout Book
             </button>
         </div>

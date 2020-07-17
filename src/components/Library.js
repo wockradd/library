@@ -12,11 +12,20 @@ const Library = () => {
         setFilterString(text)
     }
 
-    //TODO
-    //decide whether we need to add a new book
-    //or increase the quantity of one that already exists
+    
     const addBook = (book)=>{
         setBooks(books.concat(book))
+    }
+
+    const removeBook = (book)=>{
+      for(let i=0 ; i<books.length ; i++){
+        if(JSON.stringify(books[i])===JSON.stringify(book)){
+          let tempBooks = [...books]//not sure why i've gotta do this copy thing tbh
+          tempBooks[i].quantity--   //doesnt rerender otherwise
+          setBooks(tempBooks)
+          break
+        }
+      }
     }
 
     
@@ -31,8 +40,9 @@ const Library = () => {
                     <Book 
                         title={book.title} 
                         author={book.author} 
-                        initialQuantity={book.quantity}
-                        key={book.title.toLowerCase()}
+                        quantity={book.quantity}
+                        key={book.title.toLowerCase()+" "+book.author.toLowerCase()}
+                        onClick={removeBook}
                     />
                   )
             }else{
