@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
 import Book from './Book'
 import {booksData} from "../data/Data"
-import AddBook from './AddBook'
-import SearchBook from './SearchBook'
+import FormHolder from './FormHolder'
 
 const Library = () => {
     const [filterString, setFilterString] = useState('')
     const [books, setBooks] = useState(booksData)
 
+    
     const handleFilterTextChange = (text) =>{
         setFilterString(text)
     }
@@ -26,21 +26,17 @@ const Library = () => {
         }
       }
 
-
-      if(alreadyHaveBook){
+      
+      if(alreadyHaveBook){//update books state
         let tempBooks = [...books]//not sure why i've gotta do this copy thing tbh
         tempBooks[atIndex].quantity++   //doesnt rerender otherwise
         setBooks(tempBooks)
-      }else{
+      }else{//add the new book
         setBooks(books.concat(book))
       }
-
-       
-      
-
-      
-      
     }
+
+
 
     const removeBook = (book)=>{
       for(let i=0 ; i<books.length ; i++){
@@ -57,8 +53,10 @@ const Library = () => {
     
     return (
       <div>
-        <SearchBook onChange={handleFilterTextChange}/>  
-        <AddBook onSubmit={addBook}/>
+        <FormHolder 
+          searchBookOnChange={handleFilterTextChange} 
+          addBookOnSubmit={addBook}
+        />
         {books.map(book=>{
             if(book.title.toLowerCase().includes(filterString.toLowerCase())){
                 return (
