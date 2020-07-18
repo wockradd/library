@@ -4,7 +4,7 @@ import SearchBook from './SearchBook'
 
 function FormHolder(props) {
     return (
-        <div>
+        <div className ='inputGrid'>
             <SearchBook onChange={props.searchBookOnChange}/>  
             <AddBook onSubmit={props.addBookOnSubmit}/>
         </div>

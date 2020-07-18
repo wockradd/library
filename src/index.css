@@ -1,1 +1,72 @@
+:root{
+    --bgc1: rgb(121, 187, 187);
+    --bgc2: rgb(205, 248, 248);
+    --font: Arial, Helvetica, sans-serif;
+}
+
+
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-image:linear-gradient(var(--bgc1),var(--bgc2));
+}
+ 
+
+body {
+    font-family: var(--font);
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    background-image:linear-gradient(var(--bgc1),var(--bgc2));
+}
+
+
+.centered{
+    text-align: center;
+}
+
+
+.prettyInput{
+    border-radius: 25px;
+}
+
+
+.inputGrid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+
+.bookGrid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+
+input:focus{
+    outline: none;
+}
+
+
+button:focus{
+    outline: none;
+}
+
+
+@media (max-width: 800px) {
+    .bookGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+  
+@media (max-width: 500px) {
+    .bookGrid {
+      grid-template-columns: 1fr;
+    }
+    .inputGrid{
+        grid-template-columns: 1fr;
+    }
+}
 

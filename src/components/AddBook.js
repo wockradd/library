@@ -3,26 +3,29 @@ import React from 'react'
 function AddBook(props) {
     return (
         <div>
-            <form onSubmit={e=>{
-                e.preventDefault()
-                if(e.target.title.value !== '' && e.target.author.value !== ''){
-                    props.onSubmit({
-                        "title":e.target.title.value.trim().toString(),
-                        "author":e.target.author.value.trim().toString(),
-                        "quantity":1
-                    })
-                }else{
-                    alert("Fill out the form dickhead")
-                }
+            <h2 className='centered'>Return Book</h2>
+            <form
+                onSubmit={e=>{
+                    e.preventDefault()
+                    if(e.target.title.value !== '' && e.target.author.value !== ''){
+                        props.onSubmit({
+                            "title":e.target.title.value.trim().toString(),
+                            "author":e.target.author.value.trim().toString(),
+                            "quantity":1
+                        })
+                    }else{
+                        alert("Fill out the form dickhead")
+                    }
+                }}
+                className='centered'
+            >
                 
-            }}>
-                <label>Title:</label>
-                <input type='text' name='title'></input>
+                <input type='text' name='title' className='prettyInput' placeholder='Title'></input>
                 <br/>
-                <label>Author:</label>
-                <input type='text'name='author'></input>
+                
+                <input type='text'name='author'className='prettyInput'placeholder='Author'></input>
                 <br/>
-                <input type='submit' value='Return Book'></input>
+                <input type='submit' value='Return'className='prettyInput'></input>
             </form>   
         </div>
     )

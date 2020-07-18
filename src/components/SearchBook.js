@@ -3,9 +3,14 @@ import React from 'react'
 function SearchBook(props) {
     return (
         <div>
-            <form>
-            <label>Search book:</label>
-            <input type='text' onChange={(e)=>props.onChange(e.target.value)}></input>
+            <h2 className='centered'>Search</h2>
+            <form className='centered'>
+            <input 
+                type='text' 
+                onChange={(e)=>props.onChange(e.target.value)}
+                className='prettyInput'
+                placeholder='Search by title'
+            ></input>
             </form> 
         </div>
     )

@@ -57,6 +57,7 @@ const Library = () => {
           searchBookOnChange={handleFilterTextChange} 
           addBookOnSubmit={addBook}
         />
+        <div className= 'bookGrid'>
         {books.map(book=>{
             if(book.title.toLowerCase().includes(filterString.toLowerCase())){
                 return (
@@ -72,6 +73,7 @@ const Library = () => {
                 return null
             }
         })}
+        </div>
       </div>
     )
   }
